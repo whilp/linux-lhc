@@ -15,12 +15,12 @@
 
 <section class="center">
 <header>
-<h1>How a Penguin Will Find the God Particle</h1>
+<h1>Linux and the LHC</h1>
 </header>
 
 <ul class="meta">
 <li>Will Maier</li>
-<li><a href="http://will.m.aier.us/penguin-particle">http://will.m.aier.us/penguin-particle</a></li>
+<li><a href="http://will.m.aier.us/linux-lhc">http://will.m.aier.us/linux-lhc</a></li>
 <li><a href="http://milwaukeelug.org/">Milwaukee Linux Users Group</a></li>
 <li>2011.02.12</li>
 </ul>
@@ -34,7 +34,23 @@
 
 <section>
 <header>
-<h1>What's the God particle and Why Should We Care?</h1>
+<h1>We use Linux to solve big physics problems</h1>
+</header>
+
+<ul>
+<li>University of Wisconsin contributes to LHC, CMS collaboration</li>
+<li>Goals: find Higgs boson, learn about supersymmetry, new particles?</li>
+<li>At LHC: collide particles, generate data</li>
+<li>At Fermilab, other national labs: store data</li>
+<li>At Wisconsin, other universities: store and analyze data</li>
+<li>Big physics problems quickly become huge computing problems</li>
+<li>
+</ul>
+</section>
+
+<section>
+<header>
+<h1>What's a Higgs boson and Why Should We Care?</h1>
 </header>
 
 <!-- higgs simulation photo -->
@@ -60,8 +76,12 @@
 <ul>
 <li>To find a subatomic particle
 <ul>
-<li>smash other particles together at high energy</li>
-<li>Recod
+<li>Smash other particles together at high energy</li>
+<li>Record as much data as you can</li>
+<li>Throw out as much data as you can</li>
+<li>Analyze the data as quickly as you can</li>
+</ul>
+
 <li>Accelerators speed up trains of particles, forming beams</li>
 <li>Tevatron: proton/antiproton accelerator at Fermilab, near Chicago</li>
 <li>LHC: proton accelerator at CERN, near Geneva, Switzerland</li>
@@ -85,6 +105,8 @@
 <ul>
 <li>Millions of silicon and optical sensors wrapped around the accelerator tube</li>
 <li>Gather evidence (particle tracks, energy) to identify what was produced in collision</li>
+</ul>
+
 </ul>
 
 </section>
@@ -126,14 +148,127 @@
 
 <section>
 <header>
-<h1></h1>
+<h1>Now we have tons of data —  what next?</h1>
 </header>
+
+<ul>
+<li>CERN stores a copy of all data to tape</li>
+<li>Data moves from CERN to network of national labs, stored on tape again</li>
+<li>Universities request datasets and begin analysis</li>
+</ul>
+
 </section>
 
 <section>
 <header>
-<h1> </h1>
+<h1>LHC computing infrastructure at Wisconsin</h1>
 </header>
+
+<ul>
+<li>NNN dedicated machines across three sever rooms</li>
+<li>Burst up to NNN machines (GLOW campus grid)</li>
+<li>NNN TB of dedicated storage: NNN disks, NNN servers</li>
+<li>NNN switches, NNN Gbps uplink</li>
+<li>3 people: development (grid/batch), operations (storage), production</li>
+<li>Open source software stack built on Linux</li>
+</ul>
+</section>
+
+<section>
+<header>
+<h1>Computing environment</h1>
+</header>
+<ul>
+<li>Kickstart/Yum/Cfengine</li>
+<li>Python, Shell, Perl, Java</li>
+<li>Nagios, cron, tsar, central monitoring</li>
+<li>AFS, sendmail, named, httpd</li>
+</ul>
+</section>
+
+<section>
+<header>
+<h1>Batch computing</h1>
+</header>
+
+<ul>
+<li>Condor: batch system for high-througput computing, developed at Wisconsin</li>
+<li>Jobs submitted by hundreds of users from around the world; Condor matches tasks to CPU cores</li>
+<li>Transparently schedule jobs to "scavenge" idle time on campus computer labs, other clusters</li>
+<li>NNN jobs/day, NNN CPU hours/day</li>
+<li>From 4 to 24 cores, NNN GB RAM</li>
+<li>Kernel optimizations? XXX</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Storage</h1>
+</header>
+
+<ul>
+<li>dCache: distributed file system (Java)</li>
+<li>Stores data per file (not block), custom Python software to replicate</li>
+<li>Commodity servers with directly attached disks (1U, 2 to 4 SATA, .5 to 2 TB)</li>
+<li>Some servers with dedicated RAID (4U, 24 - 32 SATA, 1 - 2 TB)</li>
+<li>Namespace lookups are expensive</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Current challenges</h1>
+</header>
+
+<ul>
+<li>Scale computing and storage every year</li>
+<li>Speed up data access</li>
+<li>Reduce cost of colocated storage/computing</li>
+<li>Harden and optimize database services</li>
+<li>Simplify architecture</li>
+<li>In-depth monitoring, history</li>
+<li>Test-driven operations/deployment</li>
+<li>Find a way to grow past heat limits</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Plans</h1>
+</header>
+
+<ul>
+<li>s/dCache/HDFS/</li>
+<li>Zero-knowledge data access: CMS xrootd redirector</li>
+<li>Abstract job submission: GlideinWMS</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1>Get involved</h1>
+</header>
+
+<ul>
+<li>Learn more about the LHC, CMS, OSG</li>
+<li>Participate (Einstein@HOME)</li>
+<li>Come to the University of Wisconsin</li>
+<li>Find a job</li>
+</ul>
+
+</section>
+
+<section>
+<header>
+<h1></h1>
+</header>
+<ul>
+<li></li>
+</ul>
 </section>
 
 <!--
@@ -173,6 +308,19 @@ stack
     security: (gsi)ssh, kerberos, openssl/X509, libwrap
     services: AFS, apache, squid, mysql, postgres, redis, python, perl, java, tomcat
     grid/cluster: dCache, Condor, Globus
+
+current:
+    move computation to data
+    copy stuff
+    plan for failure
+    small, 3 person team (operations/storage, grid/batch/dev, production)
+    test/monitor
+
+plans:
+    dCache -> HDFS (larger community, better repliation and tools)
+    glideins
+    improve deployment
+    devopsy
 
 other:
     OSG?
