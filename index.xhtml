@@ -262,7 +262,11 @@
 <li>dCache: distributed file system (Java)</li>
 <li>Stores data per file (not block), custom Python software to replicate</li>
 <li>Namespace lookups are expensive</li>
-<li>Lots of overhead per transfer, large files are more efficient</li>
+<ul>
+<li>NFS interface backed by GDB key-value data stored as blobs in Postgresql</li>
+<li>Seriously</li>
+</ul>
+<li>Many protocols, lots of overhead per transfer, large files are more efficient</li>
 <li>Commodity servers with directly attached disks (1U, 2 to 4 SATA, .5 to 2 TB)</li>
 <ul>
 <li>These servers run analysis <strong>and</strong> serve data</li>
